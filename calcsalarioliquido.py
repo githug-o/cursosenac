@@ -1,10 +1,16 @@
+#solicita ao user o salário por hora e a quantidade de horas trabalhadas no mês para calcular salário bruto, descontos e salário líquido
 rsporhr = float(input("Insira o salário por hora: "))
 hrspormes = int(input("Insira a quantidade de hrs trabalhadas por mês: "))
 
-salbruto = rsporhr*hrspormes
-ir = salbruto*0.11
-inss = salbruto*0.08
-sind = salbruto*0.05
+#bruto, calculado com salário por hora e a quantidade de horas trabalhadas no mês 
+salbruto = rsporhr*hrspormes 
+
+#descontos
+ir = salbruto*0.11 #11% do salário
+inss = salbruto*0.08 #8% do salário
+sind = salbruto*0.05 #5% do salário
+
+#líquido
 liq = salbruto-inss-sind-ir
 
 print("Salário bruto: R$", salbruto)
