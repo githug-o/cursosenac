@@ -42,9 +42,9 @@ def criar_csv():
 def ler_csv():
     with open('arquivo_produtos.csv', mode="r") as vararquivo:
         leitor = csv.DictReader(vararquivo) #linhas como array
-        print("Nome","Valor","Quant","Frete","Imp1","Imp2","Imp3","Margem","ValorCusto","ValorVenda")
+        print("Nome |   Valor  | Quant    |   Frete  | Imp1 |    Imp2    |   Imp3   |  Margem    |   ValorCusto |    ValorVenda")
         for linha in leitor:
-            print(f"{linha['Nome']},{linha['Valor']},{linha['Quant']},{linha['Frete']},{linha['Imp1']},{linha['Imp1']},{linha['Imp1']},{linha['Margem']},{linha['ValorCusto']},{linha['ValorVenda']}")            
+            print(f"{linha['Nome']} |   {linha['Valor']}    |   {linha['Quant']}    |   {linha['Frete']}    |   {linha['Imp1']} |   {linha['Imp1']} |   {linha['Imp1']} |   {linha['Margem']}   |   {linha['ValorCusto']}   |   {linha['ValorVenda']}")            
 
 def exclui_linha(): #rever
     pesquisa = input("Digite o nome que deseja excluir: ")
