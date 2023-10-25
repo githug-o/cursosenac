@@ -1,4 +1,5 @@
 from datetime import datetime
+import csv
 
 livros = []
 emprestimos = []
@@ -67,17 +68,20 @@ def cadastro_contato(contatos):
     print("Contato salvo!")
     print("")
 
-def editar_contato(contatos):
-    ind = int(input("Digite a ID do contato que deseja alterar: "))-1
-    if 0 <= ind <= len(contatos):
-        print("")
-        print("Contato escolhido:")
-        print(f"ID  |   Nome  |   Telefone   |   E-mail")
-        print(f"{ind}  |   {contatos[ind]['Nome']}  |   {contatos[ind]['Telefone']}   |   {contatos[ind]['Email']}")
-        print("")
-        livros[ind]['Nome'] = input("Nome:      ")
-        livros[ind]['Telefone'] = input("Telefone:  ")
-        livros[ind]['Email'] = input("E-mail:       ")
+def editar_contato():
+    with open('arquivo_contatos.csv', mode="r") as vararquivo:
+        leitor = csv.DictReader(vararquivo) #linhas como array
+        pesquisacontato = int(input("Digite o nome do contato que deseja alterar: "))
+        for linha in leitor:
+            if linha['Nome'] == pesquisacontato:
+                print("")
+                print("Contato escolhido:")
+                print(f"ID  |   Nome  |   Telefone   |   E-mail")
+                print(f"{linha['Nome']}  |   {linha['Telefone']}   |   {linha['Email']}")
+                print("")
+                livros[ind]['Nome'] = input("Nome:      ")
+                livros[ind]['Telefone'] = input("Telefone:  ")
+                livros[ind]['Email'] = input("E-mail:       ")
 
         print("")
         print("Informações atualizadas")
@@ -106,7 +110,11 @@ def excluir_contato(contatos):
 
 def emprestar(emprestimos,contatos,livros):
     print("Qual livro deseja emprestar?\n")
-    imprimir_livros(livros)
+    leitor =  csv.DictReader(open('arquivo_livros.csv', mode = "r"))
+    print("   Título  |   Autor   |   Editora ")
+    for livro in leitor:
+            print(f"{livro['Titulo']}, {livro['Autor']}, {livro['Editora']}")
+
     idlivro = int(input("\nDigite a ID do livro: "))-1
     print("")
     print("Para quem?\n")

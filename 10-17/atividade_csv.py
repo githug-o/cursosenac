@@ -23,8 +23,9 @@ def cadastrar_produto(produtos):
     print("")
 
 def criar_csv():
-    #with open('arquivo_produtos.csv', mode="w", newline='') as vararquivo COMENTÁRIO DE EXEMPLO
+    #with open('arquivo_produtos.csv', mode="w", newline='') as vararquivo:
     #writer = csv.writer(vararquivo)
+
     gravador = csv.writer(open('arquivo_produtos.csv', mode="w", newline='')) 
     gravador.writerow(["Nome","Valor","Quant","Frete","Imp1","Imp2","Imp3","Margem","ValorCusto","ValorVenda"])
     
